@@ -7,7 +7,9 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HelmetProvider>
       <CssBaseline/>
-      <App />
+      <div>
+        <App /> 
+      </div>
     </HelmetProvider>
   </StrictMode>,
 )

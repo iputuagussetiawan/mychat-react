@@ -1,6 +1,9 @@
 
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from "../styles/StyledComponents";
+import { Box, Stack, Typography } from '@mui/material'
+import { memo } from 'react'
+import AvatarCard from './AvatarCard'
 
 const ChatItem = ({
     avatar=[],
@@ -14,7 +17,7 @@ const ChatItem = ({
     handleDeleteChatOpen
 }) => {
   return (
-    <Link to={`/chat/${_id}`} onContextMenu={(e)=>handleDeleteChatOpen(e,_id,groupChat)}>
+    <Link to={`/chat/${_id}`} underline="none" onContextMenu={(e)=>handleDeleteChatOpen(e,_id,groupChat)}>
         <div style={{
             position:'relative',
             display:'flex',
@@ -26,6 +29,7 @@ const ChatItem = ({
             justifyContent:'space-between'
           }}
         >
+          <AvatarCard avatar={avatar}/>
           <Stack>
             <Typography>{name}</Typography>
             {
@@ -38,7 +42,7 @@ const ChatItem = ({
           {isOnline && (
             <Box
               sx={{
-                with:"10px",
+                width:"10px",
                 height:"10px",
                 borderRadius:"50%",
                 backgroundColor:"green",
